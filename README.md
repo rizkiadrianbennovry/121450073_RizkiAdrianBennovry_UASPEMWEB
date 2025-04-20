@@ -45,7 +45,7 @@ Aplikasi web untuk mengelola koleksi buku pribadi. Fitur utama:
 
 | Tampilan Utama | Statistik |
 |----------------|-----------|
-| ![Home](./screenshots/home.png) | ![Stats](./screenshots/stats.png) |
+| ![image](https://github.com/user-attachments/assets/710ad868-fcc8-4d96-86d9-e4e72f9a81c7) | ![image](https://github.com/user-attachments/assets/e45af8e7-05ed-4e40-a161-3f9a80dd13a8) |
 
 ## ⚛️ Fitur React yang Digunakan
 
@@ -131,19 +131,6 @@ test('menampilkan error ketika submit form kosong', () => {
 });
 ```
 
-### Test Coverage (Contoh Output)
-
-```
----------------------|---------|----------|---------|---------|-------------------
-File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
----------------------|---------|----------|---------|---------|-------------------
-All files            |     92  |      85  |     90  |     92  |
-  components         |     91  |      83  |     88  |     91  |
-    BookForm.js      |     95  |      80  |    100  |     95  | 24
-    BookList.js      |     89  |      85  |     85  |     89  | 32-33
----------------------|---------|----------|---------|---------|-------------------
-```
-
 ## 🧩 Struktur Folder
 
 ```
@@ -160,36 +147,6 @@ src/
 │   └── useBookStats.js    # Custom hook statistik buku
 └── context/
     └── BookContext.js     # State management global
-```
-
-## 🔒 Environment Variables
-
-Buat file `.env` di root project (jika menggunakan API):
-```
-REACT_APP_API_URL=http://localhost:3001
-```
-
-## 🌐 Deployment
-
-Aplikasi ini dapat diakses melalui Vercel:
-
-👉 [https://manajemen-buku.vercel.app](https://manajemen-buku.vercel.app)
-
-## 📌 Panduan Penyempurnaan
-
-- Simpan semua **screenshot** di folder `./screenshots`
-- Jalankan testing dengan:
-  ```bash
-  npm test -- --coverage
-  ```
-- Tambahkan komentar untuk:
-  - Custom hooks
-  - Logika `useEffect` penting
-  - Validasi form dan kondisi edge case
-
-## 📜 License
-
-MIT © 2025
 ```
 
 Kalau kamu butuh bantuan generate `screenshot.png` atau `stats.png` palsu untuk sementara, aku juga bisa bantu. Cukup upload tampilan aplikasi kamu atau minta template-nya!
