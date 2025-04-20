@@ -136,15 +136,25 @@ test('menampilkan error ketika submit form kosong', () => {
 ```
 src/
 ├── components/
-│   ├── BookForm.js        # Form tambah/edit buku
-│   ├── BookList.js        # Tampilan daftar buku
-│   └── BookFilter.js      # Filter dan pencarian buku
-├── pages/
-│   ├── Home.js            # Halaman utama
-│   └── Stats.js           # Statistik koleksi
+│   ├── BookFilter/
+│   │   └── BookFilter.js
+│   ├── BookForm/
+│   │   ├── BookForm.js
+│   │   └── BookForm.test.js
+│   └── BookList/
+│       └── BookList.js
+├── context/
+│   └── BookContext.js
 ├── hooks/
-│   ├── useLocalStorage.js # Custom hook localStorage
-│   └── useBookStats.js    # Custom hook statistik buku
-└── context/
-    └── BookContext.js     # State management global
+│   ├── useBookStats.js
+│   └── useLocalStorage.js
+├── pages/
+│   ├── Home/
+│   │   └── Home.js
+│   └── Stats/
+│       └── Stats.js
+├── App.js
+├── index.js
+└── index.css
+
 ```
