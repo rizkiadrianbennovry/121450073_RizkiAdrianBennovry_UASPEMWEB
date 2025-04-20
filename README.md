@@ -148,5 +148,3 @@ src/
 └── context/
     └── BookContext.js     # State management global
 ```
-
-Kalau kamu butuh bantuan generate `screenshot.png` atau `stats.png` palsu untuk sementara, aku juga bisa bantu. Cukup upload tampilan aplikasi kamu atau minta template-nya!
