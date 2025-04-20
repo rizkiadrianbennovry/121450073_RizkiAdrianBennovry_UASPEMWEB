@@ -21,7 +21,7 @@ Aplikasi web untuk mengelola koleksi buku pribadi. Fitur utama:
 
 1. Clone repository:
    ```bash
-   git clone https://github.com/username/manajemen-buku.git
+   git clone https://github.com/rizkiadrianbennovry/RizkiAdrianBennovry_121450073_pertemuan3.git
    cd manajemen-buku
    ```
 
