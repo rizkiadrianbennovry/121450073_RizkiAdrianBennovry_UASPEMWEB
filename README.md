@@ -50,6 +50,7 @@ Aplikasi web untuk mengelola koleksi buku pribadi. Fitur utama:
 ## ⚛️ Fitur React yang Digunakan
 
 ### ✅ Hooks
+Digunakan untuk mengelola state dan efek samping (side effect) tanpa class component.
 ```jsx
 // Contoh penggunaan useState dan useEffect
 const [books, setBooks] = useState([]);
@@ -61,6 +62,7 @@ useEffect(() => {
 ```
 
 ### ✅ Context API
+Untuk manajemen state global tanpa perlu Redux. Memudahkan akses data antar komponen.
 ```jsx
 // BookContext.js
 export const BookContext = createContext();
@@ -77,6 +79,7 @@ function BookProvider({ children }) {
 ```
 
 ### ✅ Custom Hooks
+Membuat logika yang bisa digunakan kembali, seperti pengelolaan localStorage atau menghitung statistik.
 ```jsx
 // useLocalStorage.js
 function useLocalStorage(key, initialValue) {
@@ -94,7 +97,7 @@ function useLocalStorage(key, initialValue) {
 ```
 
 ## 📝 Komentar Kode Penting
-
+Berikut penjelasan untuk bagian kode yang penting agar mudah dipahami saat membaca atau mengembangkan ulang aplikasinya:
 ```jsx
 // BookForm.js
 const handleSubmit = (e) => {
@@ -121,7 +124,7 @@ const handleSubmit = (e) => {
 ## ✅ Laporan Testing
 
 ### Unit Test (React Testing Library)
-
+Untuk memastikan aplikasi berjalan dengan benar, dilakukan unit testing dengan React Testing Library.
 ```jsx
 // BookForm.test.js
 test('menampilkan error ketika submit form kosong', () => {
