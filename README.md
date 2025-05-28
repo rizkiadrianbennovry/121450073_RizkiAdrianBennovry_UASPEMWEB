@@ -164,14 +164,15 @@ books_sys/
 │   │   │   └── auth.js
 │   │   ├── routes/
 │   │   │   ├── auth.js
-│   │   │   ├── books.js
-│   │   │   └── db.js
+│   │   │   └── books.js
+│   │   ├── db.js
 │   │   └── index.js
 │   ├── .env
 │   └── package.json
 ├── frontend/
 │   ├── public/
-│   │   └── ...
+│   │   ├── index.html
+│   │   └── logo manajemen.png
 │   ├── src/
 │   │   ├── api/
 │   │   │   └── axios.js
@@ -179,14 +180,13 @@ books_sys/
 │   │   │   ├── AuthContext.js
 │   │   │   └── ProtectedRoute.js
 │   │   ├── components/
-│   │   │   ├── BookFilter/
-│   │   │   ├── BookForm/
-│   │   │   └── BookList/
+│   │   │   ├── BookFilter.js
+│   │   │   ├── BookForm.js
+│   │   │   └── BookList.js
 │   │   ├── context/
 │   │   │   └── BookContext.js
 │   │   ├── hooks/
-│   │   │   ├── useBookStats.js
-│   │   │   └── useLocalStorage.js
+│   │   │   └── useBookStats.js
 │   │   ├── pages/
 │   │   │   ├── Home.js
 │   │   │   ├── Login.js
@@ -195,9 +195,10 @@ books_sys/
 │   │   ├── App.js
 │   │   ├── index.js
 │   │   └── index.css
+│   ├── package.json
+│   ├── postcss.config.js
 │   └── tailwind.config.js
-├── README.md
-└── postcss.config.js
+└── README.md
 ```
 
 ## 📌 Ketentuan Proyek
