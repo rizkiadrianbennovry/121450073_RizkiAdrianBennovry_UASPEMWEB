@@ -227,7 +227,7 @@ const { totalBooks, byCategory } = useBookStats();
 **Deskripsi:**
 Digunakan untuk mengirim request ke backend (Python Pyramid) secara konsisten dan tersentralisasi.
 
-**Contoh Kode: 
+**Contoh Kode:**
 ```jsx
 import axios from 'axios';
 
