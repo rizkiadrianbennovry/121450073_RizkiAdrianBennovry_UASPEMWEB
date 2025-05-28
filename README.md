@@ -1,6 +1,4 @@
-# 📚 Manajemen Buku Pribadi
-
-![image](https://github.com/user-attachments/assets/99fb62ac-14da-41da-9233-78e2644da10f)
+![image](https://github.com/user-attachments/assets/86408ff7-2ae5-4f97-b037-c0fc88a85dea)# 📚 Manajemen Buku Pribadi
 
 ## 📝 Deskripsi
 
@@ -57,33 +55,15 @@ Aplikasi web untuk mengelola koleksi buku pribadi. Fitur utama:
    ```
    Akses di browser melalui `http://localhost:3000`
 
-1. Clone repository:
-   ```bash
-   git clone https://github.com/rizkiadrianbennovry/RizkiAdrianBennovry_121450073_pertemuan3.git
-   cd manajemen-buku
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Jalankan aplikasi:
-   ```bash
-   npm start
-   ```
-   Akses di browser melalui `http://localhost:3000`
-
-4. Untuk production build:
-   ```bash
-   npm run build
-   ```
-
 ## 🖼 Screenshot
 
 | Tampilan Utama | Statistik |
 |----------------|-----------|
-| ![image](https://github.com/user-attachments/assets/710ad868-fcc8-4d96-86d9-e4e72f9a81c7) | ![image](https://github.com/user-attachments/assets/e45af8e7-05ed-4e40-a161-3f9a80dd13a8) |
+| ![image](https://github.com/user-attachments/assets/86408ff7-2ae5-4f97-b037-c0fc88a85dea) | ![image](https://github.com/user-attachments/assets/e31ec84c-b442-450e-9272-e34854a46f81) |
+
+| Halaman Login | Halaman Register |
+|---------------|------------------|
+| ![image](https://github.com/user-attachments/assets/0d498734-e451-48d2-9262-d125e2a89d9b) | ![image](https://github.com/user-attachments/assets/3ab17209-b536-40e7-87dc-6e186ed595be) |
 
 ## ⚛️ Fitur React yang Digunakan
 
@@ -218,13 +198,13 @@ books_sys/
 └── postcss.config.js
 ```
 
-📌 Ketentuan Proyek
-✅ Proyek individu
-✅ Versi kontrol menggunakan Git & GitHub
-✅ Minimal 3 commit/minggu
-✅ CRUD untuk 2 entitas (User & Book)
-✅ Database PostgreSQL
-✅ Backend dengan Pyramid & RESTful API
-✅ Frontend dengan React JS (Router, Context, Tailwind)
-✅ README.md lengkap
-✅ Link GitHub dicantumkan di presentasi
+## 📌 Ketentuan Proyek
+- ✅ Proyek individu
+- ✅ Versi kontrol menggunakan Git & GitHub
+- ✅ Minimal 3 commit/minggu
+- ✅ CRUD untuk 2 entitas (User & Book)
+- ✅ Database PostgreSQL
+- ✅ Backend dengan Pyramid & RESTful API
+- ✅ Frontend dengan React JS (Router, Context, Tailwind)
+- ✅ README.md lengkap
+- ✅ Link GitHub dicantumkan di presentasi
