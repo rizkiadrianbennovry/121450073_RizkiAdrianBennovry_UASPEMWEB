@@ -3,21 +3,59 @@
 ![image](https://github.com/user-attachments/assets/99fb62ac-14da-41da-9233-78e2644da10f)
 
 ## 📝 Deskripsi
+
 Aplikasi web untuk mengelola koleksi buku pribadi. Fitur utama:
 - Tambah, edit, dan hapus buku
 - Filter berdasarkan status: **Milik**, **Dibaca**, dan **Ingin Beli**
-- Pencarian buku berdasarkan judul atau penulis
+- Pencarian buku berdasarkan judul 
 - Statistik koleksi buku
-- Penyimpanan data lokal melalui `localStorage`
+- Pembuatan akun login
+- Autentikasi login dan logout
+- Penyimpanan data dengan database PostgreSQL
+- Backend menggunakan RESTful API berbasis Python Pyramid
 
 ## 🛠 Teknologi
+
+### Frontend
 - [React 18](https://reactjs.org/)
 - [Tailwind CSS 3](https://tailwindcss.com/)
 - [React Router 6](https://reactrouter.com/)
-- Context API
-- LocalStorage
+- Context API untuk manajemen state
+- Axios untuk komunikasi dengan backend
+
+### Backend
+- Python Pyramid
+- PostgreSQL sebagai database relasional
+- Autentikasi dasar (basic authentication)
+- RESTful API dengan route CRUD
+- Unit Testing untuk endpoint kritikal (minimal 60% coverage)
 
 ## 🚀 Instalasi & Menjalankan
+### Backend
+1. Masuk ke folder backend dan siapkan environment:
+   ```bash
+   cd backend
+   python -m venv env
+   env\Scripts\activate     # Windows
+   pip install -r requirements.txt
+   ```
+2. Jalankan aplikasi:
+   ```bash
+   pserve development.ini
+   ```
+3. Setup database PostgreSQL dan sesuaikan .env jika diperlukan.
+
+### Frontend
+1. Masuk ke folder frontend:
+   ```bash
+   cd frontend
+   npm install
+   ```
+2. Jalankan aplikasi:
+   ```bash
+   npm start
+   ```
+   Akses di browser melalui `http://localhost:3000`
 
 1. Clone repository:
    ```bash
@@ -137,27 +175,45 @@ test('menampilkan error ketika submit form kosong', () => {
 ## 🧩 Struktur Folder
 
 ```
-src/
-├── components/
-│   ├── BookFilter/
-│   │   └── BookFilter.js
-│   ├── BookForm/
-│   │   ├── BookForm.js
-│   │   └── BookForm.test.js
-│   └── BookList/
-│       └── BookList.js
-├── context/
-│   └── BookContext.js
-├── hooks/
-│   ├── useBookStats.js
-│   └── useLocalStorage.js
-├── pages/
-│   ├── Home/
-│   │   └── Home.js
-│   └── Stats/
-│       └── Stats.js
-├── App.js
-├── index.js
-└── index.css
-
+books_sys/
+├── backend/
+│   ├── src/
+│   │   ├── middleware/
+│   │   │   └── auth.js
+│   │   ├── routes/
+│   │   │   ├── auth.js
+│   │   │   ├── books.js
+│   │   │   └── db.js
+│   │   └── index.js
+│   ├── .env
+│   └── package.json
+├── frontend/
+│   ├── public/
+│   │   └── ...
+│   ├── src/
+│   │   ├── api/
+│   │   │   └── axios.js
+│   │   ├── auth/
+│   │   │   ├── AuthContext.js
+│   │   │   └── ProtectedRoute.js
+│   │   ├── components/
+│   │   │   ├── BookFilter/
+│   │   │   ├── BookForm/
+│   │   │   └── BookList/
+│   │   ├── context/
+│   │   │   └── BookContext.js
+│   │   ├── hooks/
+│   │   │   ├── useBookStats.js
+│   │   │   └── useLocalStorage.js
+│   │   ├── pages/
+│   │   │   ├── Home.js
+│   │   │   ├── Login.js
+│   │   │   ├── Register.js
+│   │   │   └── Stats.js
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   └── index.css
+│   └── tailwind.config.js
+├── README.md
+└── postcss.config.js
 ```
