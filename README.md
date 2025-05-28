@@ -43,7 +43,7 @@ Aplikasi web untuk mengelola koleksi buku pribadi. Fitur utama:
    ```bash
    pserve development.ini
    ```
-3. Setup database PostgreSQL dan sesuaikan .env jika diperlukan.
+3. Setup database PostgreSQL dan sesuaikan .env jika diperlukan. Pastikan Anda sudah membuat database, mengatur kredensial .env, dan menjalankan migrasi/tabel yang diperlukan.
 
 ### Frontend
 1. Masuk ke folder frontend:
@@ -56,6 +56,34 @@ Aplikasi web untuk mengelola koleksi buku pribadi. Fitur utama:
    npm start
    ```
    Akses di browser melalui `http://localhost:3000`
+
+## 🗃️ Struktur Tabel & Query SQL
+### 📦 Tabel books
+Menyimpan data buku:
+- id: ID buku
+- title: Judul
+- author: Penulis
+- status: Status peminjaman
+- user_id: Relasi ke ID user
+
+### 👤 Tabel users
+Menyimpan data pengguna:
+- id: ID user
+- username: Nama pengguna
+
+```bash
+   SELECT
+      books.id        AS book_id,
+      books.title,
+      books.author,
+      books.status,
+      users.id        AS user_id,
+      users.username
+   FROM books
+   JOIN users
+   ON books.user_id = users.id;
+   ```
+### 🔎 SQL Query Join books dan users
 
 ## 🖼 Screenshot
 
