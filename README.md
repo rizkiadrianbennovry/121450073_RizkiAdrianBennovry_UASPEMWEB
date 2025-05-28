@@ -251,7 +251,7 @@ const response = await api.post('/books', bookData);
 **Deskripsi:**
 Menyimpan informasi login (misal token atau user object) agar tetap login meskipun halaman di-refresh.
 
-**Contoh Kode: 
+**Contoh Kode:** 
 ```jsx
 useEffect(() => {
   const savedUser = localStorage.getItem('user');
