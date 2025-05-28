@@ -194,89 +194,71 @@ function BookList() {
 }
 ```
 
-### ✅ Hooks
-Digunakan untuk mengelola state dan efek samping (side effect) tanpa class component.
+### 4. 🪝 Custom Hooks
+**File:** `hooks/useBookStats.js`
+
+**Deskripsi:**
+Hook khusus untuk menghitung statistik buku, seperti total buku, buku terbanyak berdasarkan kategori, dll.
+
+**Contoh Kode: `useBookStats.js`**
 ```jsx
-// Contoh penggunaan useState dan useEffect
-const [books, setBooks] = useState([]);
+import { useBooks } from '../context/BookContext';
 
-useEffect(() => {
-  const saved = localStorage.getItem('books');
-  if (saved) setBooks(JSON.parse(saved));
-}, []);
-```
+export default function useBookStats() {
+  const { books } = useBooks();
 
-### ✅ Context API
-Untuk manajemen state global tanpa perlu Redux. Memudahkan akses data antar komponen.
-```jsx
-// BookContext.js
-export const BookContext = createContext();
+  const totalBooks = books.length;
+  const byCategory = books.reduce((acc, book) => {
+    acc[book.category] = (acc[book.category] || 0) + 1;
+    return acc;
+  }, {});
 
-function BookProvider({ children }) {
-  const [books, setBooks] = useLocalStorage('books', []);
-  // ... fungsi add, edit, delete
-  return (
-    <BookContext.Provider value={{ books, addBook, deleteBook }}>
-      {children}
-    </BookContext.Provider>
-  );
+  return { totalBooks, byCategory };
 }
 ```
-
-### ✅ Custom Hooks
-Membuat logika yang bisa digunakan kembali, seperti pengelolaan localStorage atau menghitung statistik.
+Penggunaan di Komponen (misalnya `Stats.js`):
 ```jsx
-// useLocalStorage.js
-function useLocalStorage(key, initialValue) {
-  const [value, setValue] = useState(() => {
-    const stored = localStorage.getItem(key);
-    return stored ? JSON.parse(stored) : initialValue;
-  });
-
-  useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value));
-  }, [key, value]);
-
-  return [value, setValue];
-}
+const { totalBooks, byCategory } = useBookStats();
 ```
 
-## 📝 Komentar Kode Penting
-Berikut penjelasan untuk bagian kode yang penting agar mudah dipahami saat membaca atau mengembangkan ulang aplikasinya:
-```jsx
-// BookForm.js
-const handleSubmit = (e) => {
-  e.preventDefault();
-  if (!form.title.trim() || !form.author.trim()) {
-    setError('Judul dan penulis wajib diisi!'); // Validasi input
-    return;
-  }
-  // Logika submit buku...
-};
-```
+### 5. 📦 Axios untuk Komunikasi HTTP
+**File:** `api/axios.js`
 
-```jsx
-// BookList.js
-{filteredBooks.map(book => (
-  <BookItem 
-    key={book.id} // Penting untuk performa React
-    book={book} 
-    onDelete={deleteBook}
-  />
-))}
-```
+**Deskripsi:**
+Digunakan untuk mengirim request ke backend (Python Pyramid) secara konsisten dan tersentralisasi.
 
-## ✅ Laporan Testing
-
-### Unit Test (React Testing Library)
-Untuk memastikan aplikasi berjalan dengan benar, dilakukan unit testing dengan React Testing Library.
+**Contoh Kode: 
 ```jsx
-// BookForm.test.js
-test('menampilkan error ketika submit form kosong', () => {
-  render(<BookForm />);
-  fireEvent.click(screen.getByText(/tambah buku/i));
-  expect(screen.getByText(/wajib diisi/i)).toBeInTheDocument();
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'http://localhost:8000/api',
+  headers: { 'Content-Type': 'application/json' }
 });
+
+export default api;
+```
+Penggunaan:
+```jsx
+import api from '../api/axios';
+
+const response = await api.post('/books', bookData);
+```
+
+### 6. 💽 LocalStorage untuk Persistensi Autentikasi
+**File:** `auth/AuthContext.js`
+
+**Deskripsi:**
+Menyimpan informasi login (misal token atau user object) agar tetap login meskipun halaman di-refresh.
+
+**Contoh Kode: 
+```jsx
+useEffect(() => {
+  const savedUser = localStorage.getItem('user');
+  if (savedUser) {
+    setUser(JSON.parse(savedUser));
+  }
+}, []);
 ```
 
 ## 🧩 Struktur Folder
