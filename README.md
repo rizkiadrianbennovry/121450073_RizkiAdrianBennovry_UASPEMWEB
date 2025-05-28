@@ -217,3 +217,14 @@ books_sys/
 ├── README.md
 └── postcss.config.js
 ```
+
+📌 Ketentuan Proyek
+✅ Proyek individu
+✅ Versi kontrol menggunakan Git & GitHub
+✅ Minimal 3 commit/minggu
+✅ CRUD untuk 2 entitas (User & Book)
+✅ Database PostgreSQL
+✅ Backend dengan Pyramid & RESTful API
+✅ Frontend dengan React JS (Router, Context, Tailwind)
+✅ README.md lengkap
+✅ Link GitHub dicantumkan di presentasi
