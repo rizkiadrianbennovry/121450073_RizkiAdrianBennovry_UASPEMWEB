@@ -318,3 +318,6 @@ books_sys/
 - ✅ Frontend dengan React JS (Router, Context, Tailwind)
 - ✅ README.md lengkap
 - ✅ Link GitHub dicantumkan di presentasi
+
+## Referensi
+URL Buku: [https://press.itera.ac.id/dasar-dasar-pemrograman-web-dengan-kerangka-kerja-python-pyramid-dan-react-js/](https://press.itera.ac.id/dasar-dasar-pemrograman-web-dengan-kerangka-kerja-python-pyramid-dan-react-js/)
