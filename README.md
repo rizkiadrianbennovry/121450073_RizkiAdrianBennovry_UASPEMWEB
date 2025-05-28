@@ -97,6 +97,103 @@ Menyimpan data pengguna:
 
 ## ⚛️ Fitur React yang Digunakan
 
+### 1. 🔁 Routing dengan React Router
+**File:** `App.js`, `auth/ProtectedRoute.js`, `pages/*.js`
+
+**Deskripsi:**
+Menggunakan `react-router-dom` untuk navigasi antar halaman. Halaman yang dilindungi (seperti Home dan Stats) hanya dapat diakses jika pengguna sudah login.
+
+**Contoh Kode: `App.js`**
+```jsx
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './auth/ProtectedRoute';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Stats from './pages/Stats';
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path="/stats" element={<ProtectedRoute><Stats /></ProtectedRoute>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </Router>
+  );
+}
+```
+
+### 2. 🧠 Context API untuk Global State
+**File:** `context/BookContext.js`, `auth/AuthContext.js`
+
+**Deskripsi:**
+- `AuthContext`: menyimpan status login, token, dan fungsi login/logout.
+- `BookContext`: menyimpan daftar buku dan fungsi untuk menambah, mengedit, dan menghapus buku.
+
+**Contoh Kode: `AuthContext.js`**
+```jsx
+import { createContext, useState, useContext, useEffect } from 'react';
+
+const AuthContext = createContext();
+
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(() => JSON.parse(localStorage.getItem('user')) || null);
+
+  const login = (userData) => {
+    setUser(userData);
+    localStorage.setItem('user', JSON.stringify(userData));
+  };
+
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem('user');
+  };
+
+  return (
+    <AuthContext.Provider value={{ user, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+export const useAuth = () => useContext(AuthContext);
+```
+Penggunaan di Komponen:
+```jsx
+const { user, logout } = useAuth();
+```
+
+### 3. 🧩 Komponen Reusable
+**File:** `components/BookForm.js`, `BookList.js`, `BookFilter.js`
+
+**Deskripsi:**
+- `BookForm`: Formulir tambah/edit buku.
+- `BookList`:  Menampilkan daftar buku.
+- `BookFilter`: Filter berdasarkan kategori atau penulis.
+
+**Contoh Kode: `BookList.js`**
+```jsx
+import { useBooks } from '../context/BookContext';
+
+function BookList() {
+  const { books, deleteBook } = useBooks();
+
+  return (
+    <div>
+      {books.map((book) => (
+        <div key={book.id}>
+          <h3>{book.title}</h3>
+          <button onClick={() => deleteBook(book.id)}>Delete</button>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
 ### ✅ Hooks
 Digunakan untuk mengelola state dan efek samping (side effect) tanpa class component.
 ```jsx
